@@ -1,0 +1,122 @@
+@charset "UTF-8";
+
+/* Estilos Gerais */
+
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+:root {
+    --color_01 : #5E5E45;
+    --color_02 : #E6E300;
+    --color_03 : #d1cf44;
+    --color_04 : #e9f035;
+    --color_05 : #212206;
+}
+
+body {
+    background-color: var(--color_01);
+    height: 100vh;
+    width: 100vw;
+}
+
+main {
+    display: block;
+    background-color: var(--color_05);
+    height: 470px; 
+    width: 300px;
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    color: var(--color_04);
+
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
+}
+
+section#imagem {
+    display: block;
+    background: url(../imagens/FundoSite2.jpg) no-repeat center center fixed;
+    background-size: cover;
+    height: 175px;
+}
+
+section#formulario {
+    display: block;
+}
+
+h1 {
+    text-align: center;
+    margin: 10px;
+}
+
+p {
+    text-align: center;
+    margin: 10px 5px;
+    font-size: 0.9em;
+}
+
+.campo {
+    background-color: var(--color_04);
+    border-radius: 5px;
+    font-size: 1.8em;
+    padding: 2px;
+    margin: 5px;
+    color: var(--color_01);
+}
+.dados {
+    background-color: var(--color_03);
+    border: none;
+    border-radius: 4px;
+    color: var(--color_01);
+    font-size: 0.7em;
+    translate: 0 -4px;
+    width: calc(100% - 40px);
+}
+.enviar {
+    background-color: var(--color_04);
+    color: var(--color_05);
+    border: none;
+    border-radius: 5px;
+    width: calc(100% - 10px);
+    margin: 0px 5px;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.enviar:hover {
+    background-color: var(--color_03);
+    color: var(--color_01);
+}
+
+.boxesqueci {
+    display: block;
+    text-align: center;
+    margin: 5px;
+}
+
+.esqueci {
+    display: block;
+    text-decoration: none;
+    border: 2px solid var(--color_04) ;
+    padding: 0px 6px 6px 6px;
+    border-radius: 5px;
+    color: var(--color_04);
+    width: 100%;
+}
+
+.esqueci:hover {
+    background-color: var(--color_03);
+    color: var(--color_01);
+}
+
+.icone {
+    translate: 0px 6px;
+}
+

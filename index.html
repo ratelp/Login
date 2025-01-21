@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Login</title>
+    <link rel="stylesheet" href="estilos/style.css">
+    <link rel="stylesheet" href="estilos/telas.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<body>
+    <main>
+        <section id="imagem">
+        </section>
+        <section id="formulario">
+            <div id="inicio">
+                <H1>Login</H1>
+                <p>Seja Bem-Vindo(a)! Faça seu login:</p>
+            </div>
+            <div>
+                <form action="" method="post" autocomplete="on">
+                    <div class="campo">
+                        <label for="iusuario"><span class="material-symbols-outlined">person</span></label>
+                        <input class="dados" type="email" autocomplete="email" required>
+                    </div>
+                    <div class="campo">
+                        <label for="isenha"><span class="material-symbols-outlined">vpn_key</span></label>
+                        <input class="dados" type="password" autocomplete="current-password" required>
+                    </div>
+                    <div>
+                        <input type="submit" value="Fazer Login" class="enviar">
+                    </div>
+                </form>
+            </div>
+            <div class="boxesqueci"> <a href="" class="esqueci">Esqueci a senha <span class="material-symbols-outlined icone" >mail</span></a></div>
+        </section>
+    </main>
+</body>
+<script>
+// Seleciona o formulário
+const form = document.querySelector('form');
+const passwordInput = form.querySelector('input[type="password"]');
+
+// Cria um elemento para exibir mensagens de erro
+const errorMessage = document.createElement('span');
+errorMessage.style.color = '#212206';
+errorMessage.style.fontSize = '12px';
+errorMessage.style.display = 'none'; 
+passwordInput.parentElement.appendChild(errorMessage);
+
+
+// Cria um elemento estilizado para a mensagem de sucesso
+const successMessage = document.createElement('div');
+successMessage.style.display = 'none'; 
+successMessage.style.position = 'fixed';
+successMessage.style.top = '20px';
+successMessage.style.right = '20px';
+successMessage.style.backgroundColor = '#e9f035'; 
+successMessage.style.color = '#5E5E45';
+successMessage.style.padding = '10px 20px';
+successMessage.style.borderRadius = '5px';
+successMessage.style.boxShadow = '0px 4px 6px rgba(0, 0, 0, 0.1)';
+successMessage.style.fontSize = '14px';
+successMessage.style.zIndex = '1000';
+document.body.appendChild(successMessage);
+
+// Função para validar a senha
+function validatePassword(event) {
+  const password = passwordInput.value;
+
+  // Limpa mensagens anteriores
+  errorMessage.style.display = 'none';
+  errorMessage.textContent = '';
+  successMessage.style.display = 'none';
+  successMessage.textContent = '';
+
+  // Verifica se a senha possui pelo menos 6 caracteres
+  if (password.length < 6) {
+    event.preventDefault(); // Impede o envio do formulário
+    errorMessage.textContent = 'A senha deve ter pelo menos 6 caracteres.';
+    errorMessage.style.display = 'block';
+  } else {
+    event.preventDefault(); // Impede o envio do formulário, uma vez que a tela é somente como demonstração
+    successMessage.textContent = 'Login realizado com sucesso!';
+    successMessage.style.display = 'block';
+
+    // Remove a mensagem de sucesso após 5 segundos
+    setTimeout(() => {
+      successMessage.style.display = 'none';
+    }, 5000);
+  }
+}
+
+// Adiciona um ouvinte para o envio do formulário
+form.addEventListener('submit', validatePassword);
+</script>
+</html>
